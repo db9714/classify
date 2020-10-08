@@ -1,0 +1,80 @@
+.btnButton {
+  width: 100%;
+  height: 45px;
+  margin: 15px 0px;
+  border-radius: 10px;
+  background-color: #4caf50;
+  color: #ffffff;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  border-color: transparent;
+  outline: none;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.btnButton:hover,
+.btnButton:focus,
+.btnButton:active {
+  width: 100%;
+  height: 45px;
+  margin: 15px 0px;
+  border-radius: 10px;
+  background-color: #4caf50;
+  color: #ffffff;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  border-color: transparent;
+  outline: none;
+  cursor: pointer;
+  justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.titleIconDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.txtTitle {
+  color: #ffffff;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  border-color: transparent;
+  margin-right: 15px;
+}
+.imgIcon {
+  font-size: 30px;
+  font-weight: 100;
+}
+.outlineBtn,
+.outlineBtn:hover,
+.outlineBtn:focus,
+.outlineBtn:active {
+  background-color: #ffffff;
+  height: 45px;
+  color: #f34135;
+  border: solid 3px #f34135;
+  font-size: 25px;
+  line-height: 27px;
+  width: 100%;
+  border-radius: 10px;
+  margin:15px 0px;
+}
+.outlineBtnText{
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #f34135;
+  border-color: transparent;
+}
+.closeBtn{
+  cursor: pointer;
+  height: 30px;
+}

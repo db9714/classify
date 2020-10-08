@@ -1,0 +1,20 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: transparent;
+  margin: 0px;
+  padding: 0px;
+}
+#rememberme {
+  margin-right: 10px;
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5);
+}
+/*Activity Loader modal background*/
+#activityModal .modal-content {
+  background-color: transparent;
+  border: none;
+}
