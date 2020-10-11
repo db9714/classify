@@ -1,6 +1,6 @@
 // import React from "react";
 // import { Nav, Navbar } from "react-bootstrap";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
 
 // import { connect } from "react-redux";
@@ -42,14 +42,21 @@ import {
 import { BrowserRouter as Router } from "react-router-dom";
 
 class Header extends Component {
-  state = {
-    isOpen: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: false,
+    };
+  }
 
   toggleCollapse = () => {
     this.setState({ isOpen: !this.state.isOpen });
   };
 
+  //   didClickNavigate = (path) => {
+  //     let history = useHistory();
+  //     if (this.props.active !== path) this.history.push(path);
+  //   };
   render() {
     return (
       <div className={styles.headerOuterBar}>
@@ -68,10 +75,13 @@ class Header extends Component {
                   <MDBNavLink to="#!">CONTESTS</MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem className={styles.navbarTitleStyle}>
-                  <MDBNavLink to="#!">LOGIN</MDBNavLink>
+                  <MDBNavLink to="/">LOGIN</MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem className={styles.navbarTitleStyle}>
-                  {/* <MDBDropdown>
+                  <MDBNavLink to="/signup">SIGN UP</MDBNavLink>
+                </MDBNavItem>
+                {/* <MDBNavItem className={styles.navbarTitleStyle}>
+                  <MDBDropdown>
                     <MDBDropdownToggle nav caret>
                       <div className="d-none d-md-inline">Dropdown</div>
                     </MDBDropdownToggle>
@@ -81,9 +91,9 @@ class Header extends Component {
                       <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
                       <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
                     </MDBDropdownMenu>
-                  </MDBDropdown> */}
-                </MDBNavItem>
-                <MDBNavbarNav right>
+                  </MDBDropdown>
+                </MDBNavItem> */}
+                <MDBNavbarNav>
                   <Dropdown>
                     <Dropdown.Toggle className={styles.formSelectDiv}>
                       <span className={styles.userName}>
