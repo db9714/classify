@@ -1,0 +1,162 @@
+.container {
+  background-color: #e4e8ec;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  overflow-y: auto;
+}
+.logoDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.appLogo {
+  margin-top: 40px;
+  height: 50px;
+  color: #8a7f7f;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-family: "Raleway", sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+}
+.cardDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  border-radius: 20px;
+  background-color: #585b5fd9;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+.cardTitle {
+  color: #ffffff;
+  font-family: "Raleway", sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.errorDiv {
+  width: 100%;
+  background-color: #fbe2e1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px 5px 0px 5px;
+  border-radius: 5px;
+}
+.imgError {
+  height: 20px;
+  width: 20px;
+  margin: 0px 10px;
+}
+.txtError {
+  color: #c94f4c;
+  font-family: "Raleway", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 10px 0px;
+}
+.selectUniversity {
+  width: 100%;
+  margin: 5px 0px 15px 0px;
+  color: #000;
+  font-family: "Raleway", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+.forgotDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.txtRememberMe {
+  color: #ffffff;
+  font-family: "Raleway", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+.txtForgot {
+  color: #ffffff;
+  font-family: "Raleway", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btnCss:hover,
+.btnCss:focus,
+.btnCss:active {
+  background-color: #4caf50 !important;
+}
+
+.modalContainer {
+  overflow: hidden !important;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  z-index: 2050;
+}
+.logoStyle {
+  height: 50px;
+}
+.modalOuterDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 30px 20px 30px;
+}
+.welcomeTitle {
+  font-family: "Raleway", sans-serif;
+  font-size: 21px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #324767;
+  margin: 10px 0px 0px 0px;
+}
+.policyTextStyle {
+  font-family: "Raleway", sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: rgba(50, 71, 103, 0.64);
+  text-align: center;
+  margin: 10px 0px;
+}
+.policyCheckboxStyle {
+  color: #324767;
+  font-family: "Raleway", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  margin: 10px 0px 0px 0px;
+}
+.linkStyle {
+  color: #324767;
+  border-bottom: 1px solid #324767;
+}
+.linkStyle:hover {
+  text-decoration: none;
+}
+.carouselOuterBar {
+  margin-right: -15px;
+  margin-left: -15px;
+}

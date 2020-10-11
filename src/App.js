@@ -14,6 +14,8 @@ import ForgotPassword from "./pages/ForgotPassword.js";
 import ChangePassword from "./pages/ChangePassword";
 import Signup from "./pages/Signup.js";
 
+import Dashboard from "./pages/Dashboard";
+
 global.navigate = null;
 
 function App() {
@@ -27,6 +29,7 @@ function App() {
               <Route exact path="/forgotpassword" component={ForgotPassword} />
               <Route exact path="/activateaccount/:uid/:token" component={ActivateAccount} />
               <Route exact path="/signup" component={Signup} />
+              <Route exact path="/dashboard" component={Dashboard} />
 
               {/* <ProtectedRoute exact path="/changepassword" component={ChangePassword} /> */}
             </Switch>

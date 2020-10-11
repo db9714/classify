@@ -1,0 +1,31 @@
+.headerOuterBar {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.navBarStyle {
+  height: 80px;
+  /* background-color: #2bbbad !important; */
+}
+.logoutIconStyle {
+  color: red;
+  font-size: 25px;
+}
+.changePassIcon {
+  font-size: 25px;
+  color: #324767;
+}
+.contactIcon {
+  font-size: 20px;
+  color: #324767;
+}
+.formSelectDiv,
+.formSelectDiv:hover,
+.formSelectDiv:focus,
+.formSelectDiv:active {
+  background-color: #3bbdd5;
+  border-color: #3bbdd5;
+}
+.navbarTitleStyle {
+  padding-left: 15px;
+  padding-right: 15px;
+}

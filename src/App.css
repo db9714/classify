@@ -18,3 +18,6 @@
   background-color: transparent;
   border: none;
 }
+.show > .btn-primary.dropdown-toggle {
+  background-color: #3bbdd5;
+}
