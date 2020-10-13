@@ -17,7 +17,7 @@ const CONTEST_LIST = [
     votes: 56,
   },
   {
-    name: "MH",
+    name: "Maharastra",
     id: 2,
     votes: 15,
   },
