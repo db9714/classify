@@ -12,43 +12,43 @@ import Header from "./../components/Header";
 
 const CONTEST_LIST = [
   {
-    name: "India123",
+    name: "India1234",
     id: 1,
     votes: 56,
   },
   {
     name: "MH",
-    id: 1,
+    id: 2,
     votes: 15,
   },
   {
     name: "UP",
-    id: 1,
+    id: 3,
     votes: 20,
   },
   {
     name: "POK",
-    id: 1,
+    id: 4,
     votes: 0,
   },
   {
     name: "India",
-    id: 1,
+    id: 5,
     votes: 56,
   },
   {
     name: "MH",
-    id: 1,
+    id: 6,
     votes: 15,
   },
   {
     name: "UP",
-    id: 1,
+    id: 7,
     votes: 20,
   },
   {
     name: "POK",
-    id: 1,
+    id: 8,
     votes: 0,
   },
 ];
