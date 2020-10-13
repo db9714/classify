@@ -12,7 +12,7 @@ import Header from "./../components/Header";
 
 const CONTEST_LIST = [
   {
-    name: "India",
+    name: "Indiaaaaaaaaaaaaa",
     id: 1,
     votes: 56,
   },
