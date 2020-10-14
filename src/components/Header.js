@@ -69,16 +69,16 @@ class Header extends Component {
             <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
               <MDBNavbarNav right>
                 <MDBNavItem className={styles.navbarTitleStyle}>
-                  <MDBNavLink to="#!">HOW IT WORKS</MDBNavLink>
+                  <MDBNavLink to="#!" img class="userImage" src="../assets/images/userImage.jpg">Yuvraj</MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem className={styles.navbarTitleStyle}>
-                  <MDBNavLink to="#!">CONTESTS</MDBNavLink>
+                  <MDBNavLink to="#!">Home</MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem className={styles.navbarTitleStyle}>
-                  <MDBNavLink to="/">LOGIN</MDBNavLink>
+                  <MDBNavLink to="/">Create</MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem className={styles.navbarTitleStyle}>
-                  <MDBNavLink to="/signup">SIGN UP</MDBNavLink>
+                  <MDBNavLink to="/signup">Notifications</MDBNavLink>
                 </MDBNavItem>
                 {/* <MDBNavItem className={styles.navbarTitleStyle}>
                   <MDBDropdown>
@@ -97,7 +97,7 @@ class Header extends Component {
                   <Dropdown>
                     <Dropdown.Toggle className={styles.formSelectDiv}>
                       <span className={styles.userName}>
-                        <span className={styles.role_label}>SIGN UP</span>
+                        <span className={styles.role_label}>Join Us</span>
                       </span>
                     </Dropdown.Toggle>
 

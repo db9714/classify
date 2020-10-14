@@ -29,6 +29,8 @@
 .formSelectDiv:active {
   background-color: #3bbdd5;
   border-color: #3bbdd5;
+  padding-top: 10px;
+  padding-bottom : 10px;
 }
 .navbarTitleStyle {
   padding-left: 15px;
