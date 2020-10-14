@@ -63,7 +63,7 @@ class Header extends Component {
         <Router>
           <MDBNavbar className={styles.navBarStyle} light expand="md">
             <MDBNavbarBrand>
-              <strong className={styles.logo}>PIXXLER</strong>
+              <strong className={styles.logo}>PIXLLER</strong>
             </MDBNavbarBrand>
             <MDBNavbarToggler onClick={this.toggleCollapse} />
             <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
