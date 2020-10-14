@@ -1,15 +1,19 @@
 .headerOuterBar {
   margin-right: -15px;
   margin-left: -15px;
-  padding-bottom: 5px;
+  padding-bottom: 1px;
 }
 .navBarStyle {
   height: 80px;
-  background-color: #2bbbad !important;
+  background-color: #F9F6F5 !important;
 }
 .logoutIconStyle {
   color: red;
   font-size: 25px;
+}
+.logo {
+	color: red;
+	font-size: 25px;
 }
 .changePassIcon {
   font-size: 25px;
