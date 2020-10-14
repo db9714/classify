@@ -69,7 +69,7 @@ class Header extends Component {
             <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
               <MDBNavbarNav right>
                 <MDBNavItem className={styles.navbarTitleStyle}>
-                  <MDBNavLink to="#!">Yuvraj</MDBNavLink>
+                  <MDBNavLink to="#!">Login</MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem className={styles.navbarTitleStyle}>
                   <MDBNavLink to="#!">Home</MDBNavLink>
