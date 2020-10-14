@@ -184,17 +184,20 @@ class Dashboard extends React.Component {
               <div className={styles.addBlock}></div>
             </Col>
           </Row>
-          <Row>
+          
+		  <Row>
+            <Col style={{ display: "flex" }}>
+              <div className={styles.addBlock}></div>
+            </Col>
+          </Row>
+		  <Row>
             <Col style={{ display: "flex" }}>
               <div className={styles.footerBlock}>
-                {"© 2005-2020 The CuteKid. All Rights Reserved"}
-                <br />
-                {"The CuteKid owns and operates this website and collects the information you provide here,subject to its Privacy Policy."}
-                <br />
-                {"Do Not Sell My Personal Information"}
+                {"Copyright © 2020 Pixller - All Rights Reserved."}
               </div>
             </Col>
           </Row>
+		  
         </Container>
       </>
     );

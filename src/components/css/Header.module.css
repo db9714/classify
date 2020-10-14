@@ -1,6 +1,7 @@
 .headerOuterBar {
   margin-right: -15px;
   margin-left: -15px;
+  padding-bottom: 5px;
 }
 .navBarStyle {
   height: 80px;
