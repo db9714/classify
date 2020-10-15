@@ -156,28 +156,23 @@ class Dashboard extends React.Component {
           <Row>
 			<Col style={{display : "flex" }}>
 				<div className = {styles.secondBlock}>
-					<img
-					className={["d-block", styles.secondBlockImage].join(" ")}
-					src="https://picsum.photos/500/400?text=Second slide&bg=282c34"
-					alt="Win Prizes"
-					/>
+					<Row>
+						<input type="file" id="myFile" name="filename">
+						<input type="submit">
+					</Row>
+					<Row>
+						<div className= {styles.secondBlock}>
+						</div>
+					</Row>
 			
 				</div>
 				<div className = {styles.secondBlock}>
-					<img
-					className={["d-block", styles.secondBlockImage].join(" ")}
-					src="https://picsum.photos/500/400?text=Second slide&bg=282c34"
-					alt="Win Prizes"
-					/>
-			
+					<input type="submit">tag1</input>
+					<input type="submit">tag2</input>
+					<input type="submit">tag3</input>
 				</div>
 				<div className = {styles.secondBlock}>
-					<img
-					className={["d-block", styles.secondBlockImage].join(" ")}
-					src="https://picsum.photos/500/400?text=Second slide&bg=282c34"
-					alt="Win Prizes"
-					/>
-			
+					<input type="submit">Upload</input>
 				</div>
 			</Col>
 			</Row>
