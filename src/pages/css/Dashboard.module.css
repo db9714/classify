@@ -12,9 +12,12 @@
 .secondBlock{
 	background-color: #F2F2F6;
 	height: 200px;
+	margin: 15px;
 }	
 
 .secondBlockImage{
+	padding: 20px;
+	
 }
 
 .carouselOuterBar {
