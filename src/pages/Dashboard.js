@@ -157,8 +157,8 @@ class Dashboard extends React.Component {
 			<Col style={{display : "flex" }}>
 				<div className = {styles.secondBlock}>
 					<Row>
-						<input type="file" id="myFile" name="filename">
-						<input type="submit">
+						<input type="file" id="myFile" name="filename"></input>
+						<input type="submit"></input>
 					</Row>
 					<Row>
 						<div className= {styles.secondBlock}>
