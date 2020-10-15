@@ -30,6 +30,7 @@ function App() {
               <Route exact path="/activateaccount/:uid/:token" component={ActivateAccount} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/dashboard" component={Dashboard} />
+			  <Route exact path="/firstPage" component={firstPage} >
 
               {/* <ProtectedRoute exact path="/changepassword" component={ChangePassword} /> */}
             </Switch>

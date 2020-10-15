@@ -1,0 +1,83 @@
+.container {
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  overflow-y: auto;
+  
+}
+
+.carouselOuterBar {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.carouselImg {
+  height: 400px;
+  width: 100% !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+.block2_1 {
+  background-color: #e4e8ec;
+  width: 30%;
+  margin: 0px 20px 20px 5px;
+  /* height: 250px; */
+  padding: 25px;
+}
+.block2_2 {
+  background-color: #e4e8ec;
+  margin: 0px 5px 20px 15px;
+  width: 70%;
+  padding: 25px;
+  height: 400px;
+  overflow-y: auto;
+}
+.buttonsBlock {
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 20px;
+}
+.addBlock {
+  background-color: pink;
+  height: 80px;
+  margin-top: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 100%;
+}
+.contestList {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 100px;
+  align-items: center;
+  display: flex;
+  padding: 15px;
+  margin: 15px 0px;
+}
+.contestListItem {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.footerBlock {
+  /* height: 120px; */
+  line-height: 2.2;
+  margin-top: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  #collapse .show .carouselOuter {
+    margin-top: 150px;
+    margin-bottom: 30px;
+  }
+}
