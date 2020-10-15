@@ -10,7 +10,48 @@ import { setUser, resetUser } from "./../utils/actions";
 import styles from "./css/firstPage.module.css";
 import Header from "./../components/Header";
 
-
+const CONTEST_LIST = [
+  {
+    name: "India1234fgjkgk",
+    id: 1,
+    votes: 56,
+  },
+  {
+    name: "Maharastra",
+    id: 2,
+    votes: 15,
+  },
+  {
+    name: "UP",
+    id: 3,
+    votes: 20,
+  },
+  {
+    name: "POK",
+    id: 4,
+    votes: 0,
+  },
+  {
+    name: "India",
+    id: 5,
+    votes: 56,
+  },
+  {
+    name: "MH",
+    id: 6,
+    votes: 15,
+  },
+  {
+    name: "UP",
+    id: 7,
+    votes: 20,
+  },
+  {
+    name: "POK",
+    id: 8,
+    votes: 0,
+  },
+];
 class firstPage extends React.Component {
 	
 	componentDidMount() {}
