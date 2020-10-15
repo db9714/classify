@@ -17,6 +17,10 @@
 
 .secondBlockImage{
 	padding: 20px;
+	 width: 30% !important;
+	height: 150px;
+	margin-left: auto;
+  margin-right: auto;
 	
 }
 
