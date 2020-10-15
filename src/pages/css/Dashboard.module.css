@@ -1,5 +1,5 @@
 .container {
-  background-color: #fff;
+  background-color: #F2F2F2;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -20,17 +20,17 @@
   margin-right: auto;
 }
 .block2_1 {
-  background-color: #e4e8ec;
+  background-color: #F2F2F2;
   width: 30%;
   margin: 0px 20px 20px 5px;
   /* height: 250px; */
-  padding: 25px;
+  padding-right: 2px;
 }
 .block2_2 {
-  background-color: #e4e8ec;
+  background-color: #F2F2F2;
   margin: 0px 5px 20px 15px;
   width: 70%;
-  padding: 25px;
+  /*padding: 25px;*/
   height: 400px;
   overflow-y: auto;
 }
