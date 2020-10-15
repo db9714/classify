@@ -156,10 +156,30 @@ class Dashboard extends React.Component {
 		  <Row>
 			<Col style={{display : "flex" }}>
 				<div className = {styles.secondBlock}>
-			
+					<img
+					className={["d-block", styles.secondBlockImage].join(" ")}
+					src="https://picsum.photos/500/400?text=Second slide&bg=282c34"
+					alt="Win Prizes"
+					/>
 			
 				</div>
-		  
+				<div className = {styles.secondBlock}>
+					<img
+					className={["d-block", styles.secondBlockImage].join(" ")}
+					src="https://picsum.photos/500/400?text=Second slide&bg=282c34"
+					alt="Win Prizes"
+					/>
+			
+				</div>
+				<div className = {styles.secondBlock}>
+					<img
+					className={["d-block", styles.secondBlockImage].join(" ")}
+					src="https://picsum.photos/500/400?text=Second slide&bg=282c34"
+					alt="Win Prizes"
+					/>
+			
+				</div>
+			</Col>
 		  </Row>
 		  
 
