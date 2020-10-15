@@ -58,25 +58,12 @@ class firstPage extends React.Component {
                   </div>
                 ))}
               </div>
-			  </Col>
-		
-		
-		
-		
+			  </Col>	
 		</Row>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		)
-		
-	}
-	
+		</Container>
+      </>
+		);		
+	}	
 }
 
 export default connect((state) => ({ user: state.user }), { setUser, resetUser })(withRouter(firstPage));
