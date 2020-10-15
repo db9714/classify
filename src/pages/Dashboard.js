@@ -108,35 +108,47 @@ class Dashboard extends React.Component {
                 <img
                   className={["d-block", styles.carouselImg].join(" ")}
                   src="https://picsum.photos/500/400?text=Third slide&bg=20232a"
-                  alt="First slide"
+                  alt="Upload Content"
                 />
                 <Carousel.Caption>
-                  <h3>First slide label</h3>
-                  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                  <h3>Upload Content</h3>
+                  <p>Upload your Image Or Video </p>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
                 <img
                   className={["d-block", styles.carouselImg].join(" ")}
                   src="https://picsum.photos/500/400?text=First slide&bg=373940"
-                  alt="Third slide"
+                  alt="Enter in Contest"
                 />
 
                 <Carousel.Caption>
-                  <h3>Second slide label</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  <h3>Select Tag and Participate</h3>
+                  <p>Select the best describing tag for your content and Post It</p>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
                 <img
                   className={["d-block", styles.carouselImg].join(" ")}
                   src="https://picsum.photos/500/400?text=Second slide&bg=282c34"
-                  alt="Third slide"
+                  alt="Get Votes"
                 />
 
                 <Carousel.Caption>
-                  <h3>Third slide label</h3>
-                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                  <h3>Attract people to vote on your participation</h3>
+                  <p>Promote your entry and get votes</p>
+                </Carousel.Caption>
+              </Carousel.Item>
+			  <Carousel.Item>
+                <img
+                  className={["d-block", styles.carouselImg].join(" ")}
+                  src="https://picsum.photos/500/400?text=Second slide&bg=282c34"
+                  alt="Win Prizes"
+                />
+
+                <Carousel.Caption>
+                  <h3>Win Exciting Prizes</h3>
+                  <p>Lead the vote count and win exciting prizes at each month end</p>
                 </Carousel.Caption>
               </Carousel.Item>
             </Carousel>
