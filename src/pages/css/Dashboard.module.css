@@ -9,12 +9,17 @@
   
 }
 
+.secondBlock{
+	background-color: #F2F2F6;
+	height: 200px;
+}	
+
 .carouselOuterBar {
   margin-right: -15px;
   margin-left: -15px;
 }
 .carouselImg {
-  height: 400px;
+  height: 500px;
   width: 100% !important;
   margin-left: auto;
   margin-right: auto;

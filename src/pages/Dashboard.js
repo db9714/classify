@@ -153,6 +153,15 @@ class Dashboard extends React.Component {
               </Carousel.Item>
             </Carousel>
           </div>
+		  <Row>
+			<Col style={{display : "flex" }}>
+				<div className = {styles.secondBlock}>
+			
+			
+				</div>
+		  
+		  </Row>
+		  
 
           <Row>
             <Col style={{ display: "flex" }}>
