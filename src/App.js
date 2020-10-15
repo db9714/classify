@@ -15,7 +15,7 @@ import ChangePassword from "./pages/ChangePassword";
 import Signup from "./pages/Signup.js";
 
 import Dashboard from "./pages/Dashboard";
-
+import firstPage from "./pages/firstPage";
 global.navigate = null;
 
 function App() {
