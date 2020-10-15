@@ -180,6 +180,8 @@ class Dashboard extends React.Component {
 			
 				</div>
 			</Col>
+			</Row>
+			<Row>
             <Col style={{ display: "flex" }}>
               <div className={styles.block2_1} xs={12} sm={12}>
                 <div className={styles.buttonsBlock}>
