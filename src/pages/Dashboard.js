@@ -158,8 +158,8 @@ class Dashboard extends React.Component {
 				<div className = {styles.secondBlock}>
 					<Row>
 					<form action="/action_page.php">
-						<input type="file" id="myFile" name="filename">
-						<input type="submit">
+						<input type="file" id="myFile" name="filename"/>
+						<input type="submit"/>
 					</form>
 					</Row>
 					<Row>
@@ -170,13 +170,13 @@ class Dashboard extends React.Component {
 				</div>
 				<div className = {styles.secondBlock}>
 				<form action="/action_page.php">
-					<input type="submit" label="tag1">
-					<input type="submit" label="tag2">
-					<input type="submit" label="tag3">
+					<input type="submit" label="tag1"/>
+					<input type="submit" label="tag2"/>
+					<input type="submit" label="tag3"/>
 				</form>
 				</div>
 				<div className = {styles.secondBlock}>
-					<input type="submit">Upload</input>
+					<input type="submit"/>
 				</div>
 			</Col>
 			</Row>
