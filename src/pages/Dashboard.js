@@ -1,5 +1,9 @@
 import React from "react";
-import { Container, Row, Col, Form, Carousel } from "react-bootstrap";
+import { Container, Row, Col, Form, Carousel, Popover, OverlayTrigger } from "react-bootstrap";
+import _ from "lodash";
+import ReactPlayer from "react-player";
+import AsyncCreatableSelect from "react-select/async-creatable";
+
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { PlainButton } from "./../components/Buttons";
@@ -59,42 +63,165 @@ class Dashboard extends React.Component {
     txtError: "",
     chkRememberMe: false,
     showLoader: false,
+    selectedImages: [],
+    uploadImageName: "",
+    schoolLogoUrl: "",
+    isImageUpload: true,
+    selectedTab: "image",
+    uploadVideoName: "",
+    selectedVideos: [],
+    txtTagName: "",
+    selectedTags: [],
+    defaultTags: [
+      { label: "aaaaa", value: "aaa" },
+      { label: "aaaaa2", value: "aaa2" },
+      { label: "aaaaa", value: "aaa" },
+      { label: "aaaaa3", value: "aaa2" },
+      { label: "aaaaa4", value: "aaa" },
+      { label: "aaaaa5", value: "aaa2" },
+      { label: "aaaa6", value: "aaa" },
+      { label: "aaaaa7", value: "aaa2" },
+      { label: "aaaa8", value: "aaa" },
+      { label: "aaaa99", value: "aaa2" },
+    ],
   };
 
   componentDidMount() {}
 
   toggleLoader = (showLoader) => this.setState({ showLoader });
 
-  // didLogin = () => {
-  //   const validationError = this.isValid();
-  //   if (validationError) {
-  //     this.setState({ txtError: validationError });
-  //     return;
-  //   } else this.setState({ txtError: "" });
+  fetchData = (inputValue, callback) => {
+    if (!inputValue) {
+      callback([]);
+    } else {
+      setTimeout(() => {
+        const data = {};
 
-  //   const { txtUsername, txtPassword } = this.state;
+        // apiServices.get(
+        //   "universities/?page_size=100&name__istartswith=" + inputValue,
+        //   data,
+        //   { Token: this.state.token },
+        //   () => {},
+        //   (responseData, errorData) => {
+        //     if (errorData === null) {
+        //       const universitiesArray = [];
+        //       responseData.results.forEach((element) => {
+        //         universitiesArray.push({ label: `${element.name}`, value: element.id });
+        //       });
+        //       callback(universitiesArray);
+        //     } else {
+        //       console.log(errorData);
+        //     }
+        //   }
+        // );
+      });
+    }
+  };
+  didAddTag = (itm) => {
+    var newTags = [];
+    var containSpecialSymbol = 0;
+    var dupticateCount = 0;
+    var tempArray = itm.value.split(",");
+    let { selectedTags } = this.state;
 
-  //   const data = {
-  //     email: txtUsername,
-  //     password: txtPassword,
-  //   };
+    tempArray.forEach((element) => {
+      if (/^[a-z0-9]+$/i.test(element)) {
+        if (_.find(selectedTags, ["label", element])) {
+          dupticateCount++;
+        } else {
+          newTags.push({ label: element, value: element });
+        }
+      } else {
+        containSpecialSymbol++;
+      }
+    });
 
-  //   apiServices.post("login/", data, {}, this.toggleLoader, (responseData, errorData) => {
-  //     if (errorData === null) {
-  //       this.props.setUser({ user_data: responseData.user_data, token: responseData.key });
-  //       this.props.history.push({
-  //         pathname: "/dashboard",
-  //       });
-  //     } else {
-  //       for (let error in errorData) {
-  //         this.setState({ txtError: errorData[error][0] });
-  //       }
-  //     }
-  //   });
-  // };
+    if (dupticateCount >= 1 && containSpecialSymbol === 0) {
+      if (window.confirm(dupticateCount + "Tags are already exists Do you want to continue ?")) {
+        this.setState({ txtTagName: "" });
+        Array.prototype.push.apply(selectedTags, newTags);
+        this.setState({ selectedTags });
+      }
+    } else if (containSpecialSymbol >= 1 && dupticateCount === 0) {
+      if (window.confirm(containSpecialSymbol + "tag contains special symbols, do you want to continue ?")) {
+        this.setState({ txtTagName: "" });
+        Array.prototype.push.apply(selectedTags, newTags);
+        this.setState({ selectedTags });
+      }
+    } else if (containSpecialSymbol >= 1 && dupticateCount >= 1) {
+      if (
+        window.confirm(containSpecialSymbol + " Tags Contains Special Symbols and " + dupticateCount + " Duplicate Tags Do you want to continue ?")
+      ) {
+        this.setState({ txtTagName: "" });
+        Array.prototype.push.apply(selectedTags, newTags);
+        this.setState({ selectedTags });
+      }
+    } else {
+      this.setState({ txtTagName: "" });
+      Array.prototype.push.apply(selectedTags, newTags);
+      this.setState({ selectedTags });
+    }
+  };
+  didImageSelected = (e) => {
+    let { selectedImages } = this.state;
+    const file = e.target.files[0];
+    if (file === undefined || file === null) return; // invalid data or user clicks cancel for select.
 
+    if (selectedImages.length >= 5) {
+      alert("Maximum 5 images are allowed per story");
+      return;
+    }
+
+    if (_.find(selectedImages, ["name", file.name])) {
+      console.log("found same name");
+      return;
+    }
+
+    if (file.type === "image/png" || file.type === "image/jpg" || file.type === "image/jpeg") {
+      let reader = new FileReader();
+      // console.log(e.target.files[0])
+      // this.setState({ selectedImages, uploadImageName: file.name });
+      reader.onloadend = () => this.setState({ schoolLogoUrl: reader.result, schoolLogoExist: reader.result });
+
+      if (file) {
+        reader.readAsDataURL(file);
+        this.setState({ schoolLogoUrl: reader.result, showDeleteSchoolLogo: true });
+      } else {
+        this.setState({ schoolLogoUrl: "" });
+      }
+    } else {
+      alert("Invalid file format selected, only .jpg, .jpeg, .png files are supported");
+    }
+  };
+  didSelectTab = (item) => {
+    if (item === "image") {
+      this.setState({ isImageUpload: true, selectedTab: item });
+    } else {
+      this.setState({ isImageUpload: false, selectedTab: item });
+    }
+  };
+  didTagSelected = (itm) => {
+    const { selectedTags, defaultTags } = this.state;
+    selectedTags.push(itm);
+
+    this.setState({ selectedTags, defaultTags: _.filter(defaultTags, (obj) => obj.label !== itm.label) });
+  };
+
+  didRemoveTag = (itm) => this.setState({ selectedTags: _.filter(this.state.selectedTags, (obj) => obj.label !== itm.label) });
   render() {
-    const { showLoader } = this.state;
+    const {
+      showLoader,
+      uploadImageName,
+      selectedImages,
+      schoolLogoUrl,
+      isImageUpload,
+      selectedTab,
+      uploadVideoName,
+      selectedVideos,
+      defaultTags,
+      txtTagName,
+      selectedTags,
+    } = this.state;
     return (
       <>
         {showLoader && <ActivityLoader show={showLoader} />}
@@ -139,7 +266,7 @@ class Dashboard extends React.Component {
                   <p>Promote your entry and get votes</p>
                 </Carousel.Caption>
               </Carousel.Item>
-			  <Carousel.Item>
+              <Carousel.Item>
                 <img
                   className={["d-block", styles.carouselImg].join(" ")}
                   src="https://picsum.photos/500/400?text=Second slide&bg=282c34"
@@ -154,34 +281,112 @@ class Dashboard extends React.Component {
             </Carousel>
           </div>
           <Row>
-			<Col style={{display : "flex" }}>
-				<div className = {styles.secondBlock}>
-					<Row>
-					<form action="/action_page.php">
-						<input type="file" id="myFile" name="filename"/>
-						<input type="submit"/>
-					</form>
-					</Row>
-					<Row>
-						<div className= {styles.secondBlock}>
-						</div>
-					</Row>
-			
-				</div>
-				<div className = {styles.secondBlock}>
-				<form action="/action_page.php">
-					<input type="submit" label="tag1"/>
-					<input type="submit" label="tag2"/>
-					<input type="submit" label="tag3"/>
-				</form>
-				</div>
-				<div className = {styles.secondBlock}>
-					<input type="submit"/>
-				</div>
-			</Col>
-			</Row>
-			
-			<Row>
+            <Col className={styles.secondOuterBlock}>
+              <div className={styles.selectImageBlock}>
+                {isImageUpload === true ? <div className={styles.txtTitle}>Upload Image</div> : <div className={styles.txtTitle}>Upload Video</div>}
+                <TabComponent selectedTab={selectedTab} didSelectTab={this.didSelectTab} />
+                {selectedTab === "image" ? (
+                  <FileUpload
+                    uploadImageName={uploadImageName}
+                    selectedImages={selectedImages}
+                    didImageSelected={this.didImageSelected}
+                    didImageRemove={this.didImageRemove}
+                  />
+                ) : (
+                  <VideoFileUpload
+                    uploadVideoName={uploadVideoName}
+                    selectedVideos={selectedVideos}
+                    didVideoSelected={this.didVideoSelected}
+                    didVideoRemove={this.didVideoRemove}
+                  />
+                )}
+                <div className={styles.imageDiv}>
+                  <img className={styles.imageStyle} src={schoolLogoUrl} alt="" />
+                </div>
+                {/* {selectedImages.map((itm) => (
+                  <div className={styles.imgPreviewDiv}>
+                    <img className={styles.imgPreview} src={itm.image} alt={itm.image} />
+                    <i className={[styles.imgRemove, "fa fa-times"].join(" ")} />
+                  </div>
+                ))} */}
+              </div>
+              {/* <div className={styles.selectImageBlock}>
+                <Form>
+                  <Form.File
+                    type="file"
+                    accept="image/*"
+                    id="custom-file"
+                    label={"Upload Images"}
+                    data-browse="Upload"
+                    custom
+                    onChange={this.didImageSelected}
+                  />
+                </Form>
+
+                <div>
+                  {console.log(selectedImages)}
+                  {selectedImages.map((itm) => (
+                    <div className={styles.imgPreviewDiv}>
+                     
+                      <img className={styles.imgPreview} src={itm.image} alt={itm.image} />
+                      <i className={[styles.imgRemove, "fa fa-times"].join(" ")} />
+                    </div>
+                  ))}
+                  <div className={styles.imageDiv}>
+                    <img className={styles.imageStyle} src={schoolLogoUrl} alt="" />
+                    <ReactPlayer
+                      url={"https://www.youtube.com/watch?v=ysz5S6PUM-U"}
+                      controls={true}
+                      className="video-player"
+                      width={"100%"}
+                      height={140}
+                    />
+                  </div>
+                </div>
+              </div> */}
+              <div className={styles.selectTagsBlocks}>
+                <div className={styles.txtTitle}>Select Tags</div>
+
+                {/* <form action="/action_page.php">
+                  <input type="submit" label="tag1" />
+                  <input type="submit" label="tag2" />
+                  <input type="submit" label="tag3" />
+                </form> */}
+                <div className={styles.tagsDiv}>
+                  {defaultTags.map((itm, index) => (
+                    <OverlayTrigger
+                      key={index}
+                      trigger="hover"
+                      placement="bottom"
+                      className={styles.tagCapsule}
+                      overlay={
+                        <Popover>
+                          <span>{itm.label}</span>
+                        </Popover>
+                      }
+                    >
+                      <div className={styles.tagCapsule} onClick={() => this.didTagSelected(itm)}>
+                        <span className={styles.tagLabel}>{itm.label.length < 40 ? itm.label : itm.label.substring(0, 40).concat("...")}</span>
+                      </div>
+                    </OverlayTrigger>
+                  ))}
+
+                  <Tags
+                    txtTagName={txtTagName}
+                    TAGS={(inputValue, callback) => this.fetchData(inputValue, callback, "tags")}
+                    selectedTags={selectedTags}
+                    didAddTag={this.didAddTag}
+                    didRemoveTag={this.didRemoveTag}
+                  />
+                </div>
+              </div>
+              {/* <div className={styles.secondBlock}>
+                <input type="submit" />
+              </div> */}
+            </Col>
+          </Row>
+
+          <Row>
             <Col style={{ display: "flex" }}>
               <div className={styles.addBlock}></div>
             </Col>
@@ -191,24 +396,130 @@ class Dashboard extends React.Component {
               <div className={styles.addBlock}></div>
             </Col>
           </Row>
-          
-		  <Row>
+
+          <Row>
             <Col style={{ display: "flex" }}>
               <div className={styles.addBlock}></div>
             </Col>
           </Row>
-		  <Row>
+          <Row>
             <Col style={{ display: "flex" }}>
-              <div className={styles.footerBlock}>
-                {"Copyright © 2020 Pixller - All Rights Reserved."}
-              </div>
+              <div className={styles.footerBlock}>{"Copyright © 2020 Pixller - All Rights Reserved."}</div>
             </Col>
           </Row>
-		  
         </Container>
       </>
     );
   }
 }
 
+const FileUpload = ({ selectedImages, didImageSelected, didImageRemove, uploadImageName, imageSizeError }) => (
+  <>
+    <Form id="custom-file">
+      <Form.File
+        type="file"
+        accept="image/*"
+        label={uploadImageName ? uploadImageName : "Upload Images"}
+        data-browse="Choose File"
+        custom
+        onChange={didImageSelected}
+      />
+    </Form>
+    <span className={styles.txtSupportedFiles}>**Supported file format is jpg, jpeg, png</span>
+    <br />
+    <span className={styles.txtSupportedFiles}>**Maximum upload image size: 15MB</span>
+    <div className={styles.imgPreviewContainer}>
+      {selectedImages.map((itm, key) => (
+        <div className={styles.imgPreviewDiv} key={key}>
+          {/* <img className={styles.imgPreview} src={URL.createObjectURL(itm)} alt={itm.name} /> */}
+          {/* <img className={styles.imgPreview} src={itm.image} alt={itm.image} /> */}
+          <img className={styles.imgPreview} src={itm.image} />
+          <i className={[styles.imgRemove, "fa fa-times"].join(" ")} onClick={() => didImageRemove(itm.id)} />
+        </div>
+      ))}
+    </div>
+  </>
+);
+
+const Tags = ({ txtTagName, TAGS, selectedTags, didAddTag, didRemoveTag }) => (
+  <>
+    <div className={styles.txtTagsTitleDiv}>
+      <i className={[styles.iconSearch, "fa fa-search"].join(" ")} />
+      <AsyncCreatableSelect
+        cacheOptions
+        defaultOptions
+        loadOptions={TAGS}
+        onChange={(e) => didAddTag(e)}
+        className={styles.txtTag}
+        placeholder="Add Tags"
+        value={txtTagName}
+        styles={{
+          control: (base) => ({
+            ...base,
+            border: "1 !important",
+            boxShadow: "none",
+            borderColor: "#ced4da !important",
+          }),
+        }}
+      />
+    </div>
+    <div className={styles.tagsDiv}>
+      {selectedTags.map((itm, index) => (
+        <OverlayTrigger
+          key={index}
+          trigger="hover"
+          placement="bottom"
+          className={styles.tagCapsule}
+          overlay={
+            <Popover>
+              <span>{itm.label}</span>
+            </Popover>
+          }
+        >
+          <div className={styles.tagCapsule}>
+            <span className={styles.tagLabel}>{itm.label.length < 40 ? itm.label : itm.label.substring(0, 40).concat("...")}</span>
+            <i className={[styles.tagClose, "fa fa-times-circle"].join(" ")} onClick={() => didRemoveTag(itm)} />
+          </div>
+        </OverlayTrigger>
+      ))}
+    </div>
+  </>
+);
+const TabComponent = ({ selectedTab, didSelectTab }) => (
+  <div className={styles.tabOuterDiv}>
+    <div className={selectedTab === "image" ? styles.activeTabStyle : styles.uploadImageDiv} onClick={() => didSelectTab("image")}>
+      <span className={styles.tabTextStyle}>Upload Images</span>
+    </div>
+    <div className={selectedTab === "video" ? styles.activeTabStyle : styles.uploadVideoDiv} onClick={() => didSelectTab("video")}>
+      <span className={styles.tabTextStyle}>Upload Video</span>
+    </div>
+  </div>
+);
+
+const VideoFileUpload = ({ selectedVideos, didVideoSelected, didVideoRemove, uploadVideoName }) => (
+  <>
+    <Form id="custom-file">
+      <Form.File
+        type="file"
+        accept="video/*"
+        label={uploadVideoName ? uploadVideoName : "Upload Videos"}
+        data-browse="Choose File"
+        custom
+        onChange={didVideoSelected}
+      />
+    </Form>
+    <span className={styles.txtSupportedFiles}>**Supported file format is mp4, mov</span>
+    <br />
+    <span className={styles.txtSupportedFiles}>**Maximum upload video size: 150MB</span>
+    <div className={styles.imgPreviewContainer}>
+      {selectedVideos.map((itm, key) => (
+        <div className={styles.imgPreviewDiv} key={key}>
+          {/* <img className={styles.imgPreview} src={itm.thumbnail} alt={itm.thumbnail} /> */}
+          <img className={styles.imgPreview} src={itm.thumbnail} />
+          <i className={[styles.imgRemove, "fa fa-times"].join(" ")} onClick={() => didVideoRemove(itm.id)} />
+        </div>
+      ))}
+    </div>
+  </>
+);
 export default connect((state) => ({ user: state.user }), { setUser, resetUser })(withRouter(Dashboard));
