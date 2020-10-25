@@ -367,16 +367,14 @@ class Dashboard extends React.Component {
                   />
                 </div>
               </div>
-              {/* <div className={styles.secondBlock}>
-                <input type="submit" />
-              </div> */}
+              { <input type="text" />}
             </Col>
           </Row>
 
           <Row>
             <Col style={{ display: "flex" }}>
               <div className={styles.addBlock}>
-              <input type="text" />
+             
 
               </div>
             </Col>
