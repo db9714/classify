@@ -375,7 +375,11 @@ class Dashboard extends React.Component {
 
           <Row>
             <Col style={{ display: "flex" }}>
-              <div className={styles.addBlock}></div>
+              <div className={styles.addBlock}>
+              <input type="textarea">Caption: </input>
+
+
+              </div>
             </Col>
           </Row>
           <Row>
