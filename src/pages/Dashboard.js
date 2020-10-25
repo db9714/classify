@@ -97,23 +97,6 @@ class Dashboard extends React.Component {
       setTimeout(() => {
         const data = {};
 
-        // apiServices.get(
-        //   "universities/?page_size=100&name__istartswith=" + inputValue,
-        //   data,
-        //   { Token: this.state.token },
-        //   () => {},
-        //   (responseData, errorData) => {
-        //     if (errorData === null) {
-        //       const universitiesArray = [];
-        //       responseData.results.forEach((element) => {
-        //         universitiesArray.push({ label: `${element.name}`, value: element.id });
-        //       });
-        //       callback(universitiesArray);
-        //     } else {
-        //       console.log(errorData);
-        //     }
-        //   }
-        // );
       });
     }
   };
@@ -207,7 +190,11 @@ class Dashboard extends React.Component {
     this.setState({ selectedTags, defaultTags: _.filter(defaultTags, (obj) => obj.label !== itm.label) });
   };
 
-  didRemoveTag = (itm) => this.setState({ selectedTags: _.filter(this.state.selectedTags, (obj) => obj.label !== itm.label) });
+  didRemoveTag = (itm) =>{
+    const { selectedTags, defaultTags } = this.state;
+    defaultTags.push(itm);
+    this.setState({ selectedTags: _.filter(this.state.selectedTags, (obj) => obj.label !== itm.label) });
+  } 
   render() {
     const {
       showLoader,
