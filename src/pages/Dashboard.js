@@ -376,7 +376,7 @@ class Dashboard extends React.Component {
           <Row>
             <Col style={{ display: "flex" }}>
               <div className={styles.addBlock}>
-              <input type="textarea">Caption: </input>
+              <input type="text">Caption: </input>
 
 
               </div>
