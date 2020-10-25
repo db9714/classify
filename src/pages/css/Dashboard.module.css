@@ -7,6 +7,10 @@
   width: 100vw;
   overflow-y: auto;
 }
+
+.addDiv{
+  background-color: #e97f7f;
+}
 .secondOuterBlock {
   width: 80%;
   margin-left: auto;
