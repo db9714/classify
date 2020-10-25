@@ -269,7 +269,7 @@ class Dashboard extends React.Component {
           </div>
           <Row>
           { 
-              <div className="addDiv">
+              <div className={styles.addDiv}>
 
 
               </div>
@@ -376,7 +376,7 @@ class Dashboard extends React.Component {
                 </div>
               </div>
               { 
-              <div className="addDiv">
+              <div className={styles.addDiv}>
 
 
               </div>
