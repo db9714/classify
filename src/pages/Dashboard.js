@@ -268,14 +268,7 @@ class Dashboard extends React.Component {
             </Carousel>
           </div>
           <Row>
-          { 
-              <div className={styles.addDiv}>
 
-
-              </div>
-              
-              
-              }
             <Col className={styles.secondOuterBlock}>
               <div className={styles.selectImageBlock}>
                 {isImageUpload === true ? <div className={styles.txtTitle}>Upload Image</div> : <div className={styles.txtTitle}>Upload Video</div>}
@@ -376,10 +369,7 @@ class Dashboard extends React.Component {
                 </div>
               </div>
               { 
-              <div className={styles.addDiv}>
-
-
-              </div>
+  
               
               
               }
