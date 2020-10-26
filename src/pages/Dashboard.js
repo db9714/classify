@@ -268,7 +268,6 @@ class Dashboard extends React.Component {
             </Carousel>
           </div>
           <Row>
-
             <Col className={styles.secondOuterBlock}>
               <div className={styles.selectImageBlock}>
                 {isImageUpload === true ? <div className={styles.txtTitle}>Upload Image</div> : <div className={styles.txtTitle}>Upload Video</div>}
