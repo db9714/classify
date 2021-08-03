@@ -51,19 +51,21 @@ class Login extends React.Component {
       email: txtUsername,
       password: txtPassword,
     };
-
-    apiServices.post("login/", data, {}, this.toggleLoader, (responseData, errorData) => {
-      if (errorData === null) {
-        this.props.setUser({ user_data: responseData.user_data, token: responseData.key });
-        this.props.history.push({
-          pathname: "/dashboard",
-        });
-      } else {
-        for (let error in errorData) {
-          this.setState({ txtError: errorData[error][0] });
-        }
-      }
-    });
+    this.props.history.push({
+            pathname: "/dashboard",
+          });
+    // apiServices.post("login/", data, {}, this.toggleLoader, (responseData, errorData) => {
+    //   if (errorData === null) {
+    //     this.props.setUser({ user_data: responseData.user_data, token: responseData.key });
+    //     this.props.history.push({
+    //       pathname: "/dashboard",
+    //     });
+    //   } else {
+    //     for (let error in errorData) {
+    //       this.setState({ txtError: errorData[error][0] });
+    //     }
+    //   }
+    // });
   };
 
   render() {
